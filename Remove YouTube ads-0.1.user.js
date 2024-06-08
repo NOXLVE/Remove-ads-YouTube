@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      4
+// @version      4.1
 // @description  Remove ads and disable the message banning ad blockers!
 // @author       NG_NOXLVE
 // @match        https://www.youtube.com/*
