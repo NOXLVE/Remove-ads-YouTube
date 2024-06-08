@@ -11,6 +11,7 @@
 // @downloadURL  https://github.com/NOXLVE/Remove-ads-YouTube/raw/update-script/Remove%20YouTube%20ads-0.1.user.js
 // ==/UserScript==
 
+Lmao/
 
 (function() {
     'use strict';
