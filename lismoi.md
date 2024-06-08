@@ -4,9 +4,9 @@ qui peuvent interrompre l'expérience de visionnage.
 
 Mon script vous permet :
 
-Élimination des publicités vidéo intrusives
-Suppression des bannières et des publicités pop-up
-Suppression du message de détection du bloqueur de publicités
+1.Élimination des publicités vidéo intrusives
+2.Suppression des bannières et des publicités pop-up
+3.Suppression du message de détection du bloqueur de publicités
 
 Comment l'utiliser?
 
