@@ -1,6 +1,6 @@
-YouTube is one of the most popular video streaming platforms in the world, but it is also known for its many advertisements, which can interrupt the viewing experience.
+   YouTube is one of the most popular video streaming platforms in the world, but it is also known for its many advertisements, which can interrupt the viewing experience.
 
-My script allows you to:
+   My script allows you to:
 
 1. Elimination of Intrusive Video Ads
 2. Removal of Banner and Pop-up Ads
