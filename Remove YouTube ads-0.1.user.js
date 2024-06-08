@@ -6,6 +6,8 @@
 // @author       NG_NOXLVE
 // @match        https://www.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
+// @updateURL    https://github.com/NOXLVE/Remove-ads-YouTube/raw/main/Remove%20YouTube%20ads-0.1.user.js
+// @downloadURL  https://github.com/NOXLVE/Remove-ads-YouTube/raw/main/Remove%20YouTube%20ads-0.1.user.js
 // @grant        none
 // ==/UserScript==
 
