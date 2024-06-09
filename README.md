@@ -10,10 +10,6 @@ YouTube is one of the most popular video streaming platforms in the world, but i
 
 To use it, simply activate the script (file: "Remove YouTube ads") via Tampermonkey.
 
-Please note that the script may encounter some issues. For example, after removing the ad when launching a video, you may encounter a white or black screen. In this case, you will have to reload the 
-page or press the "F" key on your keyboard to activate full screen mode. This problem being intermittent, it cannot be directly corrected by the script.
-
-
 ## Report a bug
 
 If you encounter a bug, please report it [here](https://github.com/NOXLVE/Remove-ads-YouTube/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D).
