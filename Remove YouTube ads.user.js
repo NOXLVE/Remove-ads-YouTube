@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      3
+// @version      7
 // @description  Remove ads and disable the message banning ad blockers!
 // @author       NG_NOXLVE
 // @match        https://www.youtube.com/*
@@ -10,8 +10,6 @@
 // @updateURL    https://github.com/NOXLVE/Remove-ads-YouTube/raw/update-script/Remove%20YouTube%20ads-0.1.user.js
 // @downloadURL  https://github.com/NOXLVE/Remove-ads-YouTube/raw/update-script/Remove%20YouTube%20ads-0.1.user.js
 // ==/UserScript==
-
-// If you have suggestions, do not hesitate !
 
 (function() {
     'use strict';
@@ -22,8 +20,6 @@
     const debugMessages = true;
 
     const logDebug = (message) => { if (debugMessages) console.log(`Remove Adblock Thing: ${message}`); };
-
-    let unpausedAfterSkip = 0;
 
     // Setup
     logDebug("Script started");
@@ -61,11 +57,6 @@
 
                 logDebug("Popup removed");
             }
-            // Check if the video is paused after removing the popup
-            if (!video.paused) return;
-            // UnPause The Video
-            video.play();
-
         }, 1000);
     }
 
@@ -91,6 +82,7 @@
                 if (video) {
                     video.playbackRate = 16; // Augmenter la vitesse pour passer l'annonce plus rapidement
                     video.currentTime = video.duration || 0; // Aller à la fin de la vidéo
+                    video.volume = 0; // Désactiver le son de la vidéo
                 }
 
                 skipBtn?.click();
@@ -108,6 +100,12 @@
             if (videoAdPlayerOverlay) {
                 logDebug("Ad player overlay found, removing...");
                 videoAdPlayerOverlay.style.display = 'none';
+            }
+
+            // Vérifier périodiquement si la vidéo est en pause et la maintenir en pause si c'est le cas
+            const video = document.querySelector('video');
+            if (video && video.paused) {
+                video.pause();
             }
         }, 1000);
     }
