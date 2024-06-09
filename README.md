@@ -17,3 +17,15 @@ page or press the "F" key on your keyboard to activate full screen mode. This pr
 ## Report a bug
 
 If you encounter a bug, please report it [here](https://github.com/NOXLVE/Remove-ads-YouTube/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D).
+
+## How to Submit a Bug
+
+We appreciate your feedback and contributions. To report a bug, please follow the following steps:
+
+1. Go to the [issues page](https://github.com/NOXLVE/Remove-ads-YouTube/issues).
+2. Click "New issue".
+3. Select “Bug report”.
+4. Fill out the template with as much detail as possible.
+5. Click “Submit new issue”.
+
+Thanks for your help !

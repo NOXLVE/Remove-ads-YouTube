@@ -21,3 +21,15 @@ Ce problème étant intermittent, il ne peut pas être directement corrigé par 
 ## Signaler un Bug
 
 Si vous rencontrez un bug, veuillez le signaler [ici](https://github.com/NOXLVE/Remove-ads-YouTube/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D).
+
+## Comment Soumettre un Bug
+
+Nous apprécions vos retours et vos contributions. Pour signaler un bug, veuillez suivre les étapes suivantes :
+
+1. Allez sur la [page des issues](https://github.com/NOXLVE/Remove-ads-YouTube/issues).
+2. Cliquez sur "New issue".
+3. Sélectionnez "Bug report".
+4. Remplissez le template avec autant de détails que possible.
+5. Cliquez sur "Submit new issue".
+
+Merci pour votre aide !
