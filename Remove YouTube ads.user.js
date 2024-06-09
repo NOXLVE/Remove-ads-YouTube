@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      3
 // @description  Remove ads and disable the message banning ad blockers!
 // @author       NG_NOXLVE
 // @match        https://www.youtube.com/*
@@ -9,8 +9,9 @@
 // @grant        none
 // @updateURL    https://github.com/NOXLVE/Remove-ads-YouTube/raw/update-script/Remove%20YouTube%20ads-0.1.user.js
 // @downloadURL  https://github.com/NOXLVE/Remove-ads-YouTube/raw/update-script/Remove%20YouTube%20ads-0.1.user.js
-// @license      MIT
 // ==/UserScript==
+
+// If you have suggestions, do not hesitate !
 
 (function() {
     'use strict';
@@ -31,10 +32,15 @@
     if (removePopup) popupRemover();
 
     function popupRemover() {
-        const observer = new MutationObserver(() => {
+        setInterval(() => {
             const modalOverlay = document.querySelector("tp-yt-iron-overlay-backdrop");
             const popup = document.querySelector(".style-scope ytd-enforcement-message-view-model");
             const popupButton = document.getElementById("dismiss-button");
+
+            var video = document.querySelector('video');
+
+            const bodyStyle = document.body.style;
+            bodyStyle.setProperty('overflow-y', 'auto', 'important');
 
             if (modalOverlay) {
                 modalOverlay.removeAttribute("opened");
@@ -44,24 +50,30 @@
             if (popup) {
                 logDebug("Popup detected, removing...");
 
-                popupButton?.click();
+                if(popupButton) popupButton.click();
+
                 popup.remove();
-                unpausedAfterSkip = 2;
+                video.play();
+
+                setTimeout(() => {
+                    video.play();
+                }, 500);
 
                 logDebug("Popup removed");
             }
+            // Check if the video is paused after removing the popup
+            if (!video.paused) return;
+            // UnPause The Video
+            video.play();
 
-            unPauseVideo(document.querySelector("#movie_player > video.html5-main-video"));
-            unPauseVideo(document.querySelector("#movie_player > .html5-video-container > video"));
-        });
-
-        observer.observe(document.body, { childList: true, subtree: true });
+        }, 1000);
     }
 
     function removeAds() {
         logDebug("removeAds()");
 
-        const observer = new MutationObserver(() => {
+        setInterval(() =>{
+
             const ad = document.querySelector('.ad-showing');
             const adBlockMessage = document.querySelector('#dialog');
 
@@ -97,50 +109,7 @@
                 logDebug("Ad player overlay found, removing...");
                 videoAdPlayerOverlay.style.display = 'none';
             }
-        });
-
-        observer.observe(document.body, { childList: true, subtree: true });
-
-        removePageAds();
+        }, 1000);
     }
 
-    function removePageAds() {
-        const style = document.createElement('style');
-        style.textContent = `
-            ytd-action-companion-ad-renderer,
-            div#root.style-scope.ytd-display-ad-renderer.yt-simple-endpoint,
-            div#sparkles-container.style-scope.ytd-promoted-sparkles-web-renderer,
-            div#main-container.style-scope.ytd-promoted-video-renderer,
-            ytd-in-feed-ad-layout-renderer,
-            .ytd-video-masthead-ad-v3-renderer,
-            div#player-ads.style-scope.ytd-watch-flexy,
-            yt-about-this-ad-renderer,
-            yt-mealbar-promo-renderer,
-            #masthead-ad,
-            #dialog,
-            ytd-popup-container,
-            tp-yt-paper-dialog {
-                display: none !important;
-            }
-
-            .ad-container,
-            .ytp-ad-player-overlay,
-            .ytp-ad-module,
-            .ytp-ad-overlay-container {
-                display: none !important;
-            }
-        `;
-        document.head.appendChild(style);
-        logDebug("Removed page ads (✔️)");
-    }
-
-    function unPauseVideo(video) {
-        if (video && video.paused && unpausedAfterSkip > 0) {
-            video.play();
-            unpausedAfterSkip = 0;
-            logDebug("Unpaused video");
-        } else if (unpausedAfterSkip > 0) {
-            unpausedAfterSkip--;
-        }
-    }
 })();
