@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      4.1
+// @version      1.1
 // @description  Remove ads and disable the message banning ad blockers!
 // @author       NG_NOXLVE
 // @match        https://www.youtube.com/*
@@ -10,7 +10,6 @@
 // @updateURL    https://github.com/NOXLVE/Remove-ads-YouTube/raw/update-script/Remove%20YouTube%20ads-0.1.user.js
 // @downloadURL  https://github.com/NOXLVE/Remove-ads-YouTube/raw/update-script/Remove%20YouTube%20ads-0.1.user.js
 // ==/UserScript==
-
 
 (function() {
     'use strict';
@@ -21,22 +20,6 @@
     const debugMessages = true;
 
     const logDebug = (message) => { if (debugMessages) console.log(`Remove Adblock Thing: ${message}`); };
-
-    const keyEvent = new KeyboardEvent("keydown", {
-        key: "k",
-        code: "KeyK",
-        keyCode: 75,
-        which: 75,
-        bubbles: true,
-        cancelable: true,
-        view: window
-    });
-
-    const mouseEvent = new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-        view: window
-    });
 
     let unpausedAfterSkip = 0;
 
@@ -51,7 +34,6 @@
             const modalOverlay = document.querySelector("tp-yt-iron-overlay-backdrop");
             const popup = document.querySelector(".style-scope ytd-enforcement-message-view-model");
             const popupButton = document.getElementById("dismiss-button");
-            const fullScreenButton = document.querySelector(".ytp-fullscreen-button");
 
             if (modalOverlay) {
                 modalOverlay.removeAttribute("opened");
@@ -64,14 +46,6 @@
                 popupButton?.click();
                 popup.remove();
                 unpausedAfterSkip = 2;
-
-                // Fullscreen mode should not be triggered after removing the popup
-                // fullScreenButton?.dispatchEvent(mouseEvent);
-
-                setTimeout(() => {
-                    // Avoid triggering fullscreen mode again after a delay
-                    // fullScreenButton?.dispatchEvent(mouseEvent);
-                }, 500);
 
                 logDebug("Popup removed");
             }
@@ -100,17 +74,13 @@
 
                 const video = document.querySelector('video');
                 const skipBtn = document.querySelector('.videoAdUiSkipButton,.ytp-ad-skip-button');
-                const nonVid = document.querySelector(".ytp-ad-skip-button-modern");
 
                 if (video) {
-                    video.playbackRate = 10;
-                    video.volume = 0;
-                    video.currentTime = video.duration || 0;
-                    video.style.display = 'block'; // Ensure the video is visible
+                    video.playbackRate = 16; // Augmenter la vitesse pour passer l'annonce plus rapidement
+                    video.currentTime = video.duration || 0; // Aller à la fin de la vidéo
                 }
 
                 skipBtn?.click();
-                nonVid?.click();
 
                 logDebug("Skipped Ad (✔️)");
             }
@@ -165,9 +135,9 @@
 
     function unPauseVideo(video) {
         if (video && video.paused && unpausedAfterSkip > 0) {
-            document.dispatchEvent(keyEvent);
+            video.play();
             unpausedAfterSkip = 0;
-            logDebug("Unpaused video using 'k' key");
+            logDebug("Unpaused video");
         } else if (unpausedAfterSkip > 0) {
             unpausedAfterSkip--;
         }
