@@ -12,6 +12,13 @@ qui peuvent interrompre l'expérience de visionnage.
 
 Pour l'utiliser, il suffit d'activer le script (fichier : "Supprimer les publicités YouTube") via Tampermonkey.
 
+Après avoir procédé à des essais sur divers navigateurs, un seul présente un problème notable : Opera/Opera GX. Il semblerait que le blocage des publicités ne soit pas optimal, entraînant la disparition de la vidéo. Il est probable que vous deviez actualiser la page plusieurs fois jusqu'à ce que cela fonctionne correctement.
+Mais pour palier ce problème mon script vous permet d'activer [AdBlock](https://adblockplus.org/fr/download) (extension) pour éviter ce problème.
+
+Je travaille actuellement sur le développement d'un script spécifique pour ce navigateur, qui sera bientôt disponible. En attendant, je vous recommande d'utiliser un autre navigateur ou d'utiliser l'extension ci-dessus.
+
+Veuillez accepter toutes mes excuses pour le désagrément occasionné.
+
 ## Signaler un Bug
 
 Si vous rencontrez un bug, veuillez le signaler [ici](https://github.com/NOXLVE/Remove-ads-YouTube/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D).
