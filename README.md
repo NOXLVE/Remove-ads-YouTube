@@ -25,3 +25,7 @@ We appreciate your feedback and contributions. To report a bug, please follow th
 5. Click “Submit new issue”.
 
 Thanks for your help !
+
+## Latest Versions
+
+- [Version 2.0](https://github.com/NOXLVE/Remove-ads-YouTube/releases/tag/V2)
