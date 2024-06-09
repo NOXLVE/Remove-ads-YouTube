@@ -1,11 +1,11 @@
 **ENGLISH**
 
 ---
-name: Bug report
-about: Create a report to help us improve
-title: "[BUG] "
-labels: bug
-assignees: ''
+name: Bug report <br>
+about: Create a report to help us improve <br>
+title: "[BUG] " <br>
+labels: bug <br>
+assignees: '' <br>
 
 ---
 
@@ -33,11 +33,11 @@ If applicable, add screenshots to help explain your problem.
 **FRENCH**
 
 ---
-nom : Rapport de bug
-à propos : Créer un rapport pour nous aider à améliorer
-titre : « [BUG] »
-étiquettes:bug
-attribué: ''
+nom : Rapport de bug <br>
+à propos : Créer un rapport pour nous aider à améliorer <br>
+titre : « [BUG] » <br>
+étiquettes:bug <br>
+attribué: '' <br>
 
 ---
 
@@ -45,11 +45,11 @@ attribué: ''
 Une description claire et concise du bug.
 
 **Reproduire**
-Étapes pour reproduire le comportement :
-1. Allez à '...'
-2. Cliquez sur '....'
-3. Faites défiler jusqu'à '....'
-4. Voir l'erreur
+Étapes pour reproduire le comportement : <br>
+1. Allez à '...' <br>
+2. Cliquez sur '....' <br>
+3. Faites défiler jusqu'à '....' <br>
+4. Voir l'erreur <br>
 
 **Comportement attendu**
 Une description claire et concise de ce qui était censé se passer.
@@ -58,6 +58,6 @@ Une description claire et concise de ce qui était censé se passer.
 Le cas échéant, ajoutez des captures d'écran pour expliquer votre problème.
 
 **Ordinateur (veuillez compléter les informations suivantes) :**
- - Système d'exploitation : [Par exemple Windows, MacOS]
- - Navigateur [Par exemple Chrome, Safari]
- - Version [Par exemple 22]
+ - Système d'exploitation : [Par exemple Windows, MacOS] <br>
+ - Navigateur [Par exemple Chrome, Safari] <br>
+ - Version [Par exemple 22] <br>
