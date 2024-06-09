@@ -10,6 +10,14 @@ YouTube is one of the most popular video streaming platforms in the world, but i
 
 To use it, simply activate the script (file: "Remove YouTube ads") via Tampermonkey.
 
+After testing on various browsers, only one presents a notable problem: Opera/Opera GX. It appears that ad blocking is not optimal, causing the video to disappear. You will likely need to refresh the page several times until it works correctly.
+But to overcome this problem my script allows you to activate [AdBlock](https://adblockplus.org/fr/download)
+ (extension) to avoid this problem.
+
+I am currently working on developing a specific script for this browser, which will be available soon. In the meantime, I recommend using another browser.
+
+Please accept my apologies for the inconvenience caused.
+
 ## Report a bug
 
 If you encounter a bug, please report it [here](https://github.com/NOXLVE/Remove-ads-YouTube/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D).
