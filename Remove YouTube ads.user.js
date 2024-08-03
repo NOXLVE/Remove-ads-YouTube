@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove YouTube ads
 // @namespace    http://tampermonkey.net/
-// @version      2
+// @version      3
 // @description  Remove ads and disable the message banning ad blockers!
 // @author       NG_NOXLVE
 // @match        https://www.youtube.com/*
@@ -33,7 +33,7 @@
             const popup = document.querySelector(".style-scope ytd-enforcement-message-view-model");
             const popupButton = document.getElementById("dismiss-button");
 
-            var video = document.querySelector('video');
+            const video = document.querySelector('video');
 
             const bodyStyle = document.body.style;
             bodyStyle.setProperty('overflow-y', 'auto', 'important');
@@ -46,13 +46,15 @@
             if (popup) {
                 logDebug("Popup detected, removing...");
 
-                if(popupButton) popupButton.click();
+                if (popupButton) popupButton.click();
 
                 popup.remove();
-                video.play();
 
+                // Delay to ensure video element is properly handled
                 setTimeout(() => {
-                    video.play();
+                    if (video) {
+                        video.play();
+                    }
                 }, 500);
 
                 logDebug("Popup removed");
@@ -63,10 +65,11 @@
     function removeAds() {
         logDebug("removeAds()");
 
-        setInterval(() =>{
+        setInterval(() => {
 
             const ad = document.querySelector('.ad-showing');
             const adBlockMessage = document.querySelector('#dialog');
+            const video = document.querySelector('video');
 
             if (adBlockMessage) {
                 logDebug("Adblock message detected, removing...");
@@ -76,18 +79,26 @@
             if (ad) {
                 logDebug("Found Ad");
 
-                const video = document.querySelector('video');
                 const skipBtn = document.querySelector('.videoAdUiSkipButton,.ytp-ad-skip-button');
 
                 if (video) {
-                    video.playbackRate = 16; // Augmenter la vitesse pour passer l'annonce plus rapidement
-                    video.currentTime = video.duration || 0; // Aller à la fin de la vidéo
-                    video.volume = 0; // Désactiver le son de la vidéo
+                    video.playbackRate = 16; // Increase speed to skip ad faster
+                    video.currentTime = video.duration || 0; // Jump to the end of the video
+                    video.volume = 0; // Mute the video
                 }
 
-                skipBtn?.click();
+                if (skipBtn) {
+                    skipBtn.click();
+                }
 
                 logDebug("Skipped Ad (✔️)");
+
+                // Ensure video continues playing after ad skip
+                setTimeout(() => {
+                    if (video) {
+                        video.play();
+                    }
+                }, 500);
             }
 
             const adContainer = document.querySelector(".ad-container");
@@ -102,10 +113,9 @@
                 videoAdPlayerOverlay.style.display = 'none';
             }
 
-            // Vérifier périodiquement si la vidéo est en pause et la maintenir en pause si c'est le cas
-            const video = document.querySelector('video');
+            // Check periodically if the video is paused and keep it playing if so
             if (video && video.paused) {
-                video.pause();
+                video.play();
             }
         }, 1000);
     }
