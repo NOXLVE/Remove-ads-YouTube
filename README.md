@@ -36,4 +36,4 @@ Thanks for your help !
 
 ## Latest Versions
 
-- [Version 2.0](https://github.com/NOXLVE/Remove-ads-YouTube/releases/tag/V2)
+- [Version 3.0](https://github.com/NOXLVE/Remove-ads-YouTube/releases/tag/V3)
